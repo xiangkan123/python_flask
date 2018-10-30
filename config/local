@@ -1,0 +1,7 @@
+[LogicServer]
+ip = 127.0.0.1
+port = 8810
+
+[DBServer]
+ip = 127.0.0.1
+port = 3306
