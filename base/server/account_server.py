@@ -1,20 +1,19 @@
 # -*- coding: UTF-8 -*-
 
 """
-    content logic server
+    content account server
     date 2018 - 10 - 30
     author cy-h
 """
 
-from flask import Flask
+from base.manager.redis_manager import RedisManager
 from base_server import BaseServer
-from log.log_manager import Log
 from db.db_manager import DBManager
+from log.log_manager import Log
+from route.account_route import StartRoute
 
-app = Flask(__name__)
 
-
-class LogicServer(BaseServer):
+class AccountServer(BaseServer):
 
     def __init__(self, config_name):
         self.init(config_name)
@@ -24,8 +23,11 @@ class LogicServer(BaseServer):
         Log.init("logic")
 
         DBManager.connect(self.get_server_data("DBServer"))
+        RedisManager.init(self.get_server_data("RedisServer"))
+
+    @classmethod
+    def start_run(cls, host, port):
+        StartRoute(host, port)
 
 
-@app.route('/')
-def index():
-    return "hello world"
+

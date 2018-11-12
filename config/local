@@ -2,6 +2,21 @@
 ip = 127.0.0.1
 port = 8810
 
+[GateServer]
+ip = 127.0.0.1
+port = 8820
+
+[AccountServer]
+ip = 127.0.0.1
+port = 8830
+
 [DBServer]
 ip = 127.0.0.1
 port = 3306
+
+[RedisServer]
+ip = 127.0.0.1
+port = 6379
+db = 0
+password = local123
+auth = True

@@ -17,7 +17,7 @@ class DBManager(object):
     @classmethod
     def connect(cls, params):
         cls._db = pymysql.connect(params["ip"], 'root', 'root', "user", charset='utf8')
-        print "connect sql success! "
+        Log.logger("connect sql success! ")
 
     @classmethod
     def create_table(cls, table_name):

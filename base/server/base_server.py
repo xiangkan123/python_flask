@@ -5,7 +5,7 @@
     date 2018 - 10 - 30
     author cy-h
 """
-from base.config_manager import ConfigManager
+from base.manager.config_manager import ConfigManager
 
 
 class BaseServer(object):
