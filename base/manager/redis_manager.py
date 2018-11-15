@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import redis
+
 from log.log_manager import Log
 
 

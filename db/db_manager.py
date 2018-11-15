@@ -6,6 +6,7 @@
     author cy-h
 """
 import pymysql
+
 import db_util
 from log.log_manager import Log
 

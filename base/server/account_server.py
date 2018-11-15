@@ -11,6 +11,7 @@ from base_server import BaseServer
 from db.db_manager import DBManager
 from log.log_manager import Log
 from route.account_route import StartRoute
+from tool.map_method import MapMethod
 
 
 class AccountServer(BaseServer):
@@ -22,8 +23,12 @@ class AccountServer(BaseServer):
     def load(self):
         Log.init("logic")
 
+        # 初始化数据库
         DBManager.connect(self.get_server_data("DBServer"))
+        # 初始化redis
         RedisManager.init(self.get_server_data("RedisServer"))
+        # 数据映射
+        MapMethod.init()
 
     @classmethod
     def start_run(cls, host, port):

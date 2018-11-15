@@ -16,6 +16,6 @@ class DBTableConfig(object):
 
     db_list = {
         table_user_data: ["role_id", "user_id"],
-        table_account_data: ["account", "password", "user_id", "ban"],
+        table_account_data: ["account", "password", "role_id", "ban"],
         table_role_data: ["role_id", "name", "lv", "exp", "vitality", "diamond", "gold"]
     }

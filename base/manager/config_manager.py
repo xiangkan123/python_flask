@@ -41,7 +41,7 @@ class ConfigManager(object):
 
     @classmethod
     def get_server_data(cls, server_name):
-        if cls.server_dict.has_key(server_name):
+        if server_name in cls.server_dict:
             return cls.server_dict[server_name]
         return None
 

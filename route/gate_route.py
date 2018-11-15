@@ -7,7 +7,7 @@ from base.manager.require_manager import RequireManager
 app = Flask(__name__)
 
 
-@app.route(protocol.role_data_get, methods=['POST'])
+@app.route(protocol.server_info_get, methods=['POST'])
 def get_role_data():
     return RequireManager.require_responses(request.data)
 

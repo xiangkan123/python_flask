@@ -18,16 +18,9 @@ def get_account_data(table_name):
     return "create table %s(" \
             "account VARCHAR(20) PRIMARY KEY NOT NULL, " \
             "password VARCHAR(20) NOT NULL, " \
-            "user_id VARCHAR(30) NOT NULL," \
+            "role_id VARCHAR(30) NOT NULL," \
             "ban INT NOT NULL " \
            ");" % table_name
-
-
-def get_user_data(table_name):
-    sql = "create table %s( " \
-          "role_id VARCHAR (30) NOT NULL," \
-          "user_id VARCHAR (30) PRIMARY KEY NOT NULL);" % table_name
-    return sql
 
 
 def get_role_data(table_name):
@@ -43,9 +36,7 @@ def get_role_data(table_name):
 
 
 def get_table_sql(table_name):
-    if DBTableConfig.table_user_data == table_name:
-        sql = get_user_data(table_name)
-    elif DBTableConfig.table_account_data == table_name:
+    if DBTableConfig.table_account_data == table_name:
         sql = get_account_data(table_name)
     elif DBTableConfig.table_role_data == table_name:
         sql = get_role_data(table_name)

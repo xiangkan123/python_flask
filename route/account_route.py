@@ -1,22 +1,23 @@
 # -*- coding: UTF-8 -*-
 
 import protocol.protocol as protocol
-from flask import Flask
+from flask import Flask, request
+from base.manager.require_manager import RequireManager
 
 app = Flask(__name__)
 
 
-@app.route(protocol.register, methods=['GET'])
+@app.route(protocol.register, methods=['POST'])
 def register():
-    return "hello world"
+    return RequireManager.require_responses(request.data)
 
 
-@app.route(protocol.register, methods=['GET'])
+@app.route(protocol.login, methods=['POST'])
 def login():
-    return "login"
+    return RequireManager.require_responses(request.data)
 
 
-@app.route(protocol.register, methods=['GET'])
+@app.route(protocol.logout, methods=['GET'])
 def logout():
     return "logout"
 
