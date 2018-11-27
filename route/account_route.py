@@ -9,12 +9,12 @@ app = Flask(__name__)
 
 @app.route(protocol.register, methods=['POST'])
 def register():
-    return RequireManager.require_responses(request.data)
+    return RequireManager.require_responses(request)
 
 
 @app.route(protocol.login, methods=['POST'])
 def login():
-    return RequireManager.require_responses(request.data)
+    return RequireManager.require_responses(request)
 
 
 @app.route(protocol.logout, methods=['GET'])

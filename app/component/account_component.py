@@ -9,6 +9,7 @@ from db.db_manager import DBManager
 from db.db_table_config import DBTableConfig
 from base.manager.redis_manager import RedisManager
 from app.constant.account import ACCOUNT_INIT_VALUE, ACCOUNT_UUID_FLAG
+from base.manager.token_manager import ToKenManager
 
 
 def get_register_result(req):
@@ -50,5 +51,7 @@ def get_login_result(req):
         return {"code": code.ACCOUNT_PASSWORD_ERROR}
 
     role_id = account_data["role_id"]
-    return {"role_id": role_id, "code": 0}
+    token = ToKenManager.general_token(role_id)
+
+    return {"role_id": role_id, "code": 0, "token": token}
 
